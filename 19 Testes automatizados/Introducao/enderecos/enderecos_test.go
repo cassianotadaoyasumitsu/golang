@@ -1,4 +1,4 @@
-package enderecos
+package enderecos // enderecos_test (importar package e chamar a funcao endereco.TipoDeEndereco)
 
 import "testing"
 
@@ -8,6 +8,7 @@ type cenarioDeTeste struct {
 }
 
 func TestTipoDeEndereco(t *testing.T) {
+	t.Parallel()
 
 	cenariosDeTeste := []cenarioDeTeste{
 		{"Rua abc", "Rua"},
@@ -30,3 +31,13 @@ func TestTipoDeEndereco(t *testing.T) {
 		}
 	}
 }
+
+func TestQualquer(t *testing.T) {
+	t.Parallel() // Roda testes em paralelo
+	if 1 > 2 {
+		t.Errorf("Teste quebrou")
+	}
+}
+
+// go test --coverprofile {nomedoarquivo.txt} "cria arquivo"
+// go tool cover --html={nomedoarquivo.txt} "le arquivo"
